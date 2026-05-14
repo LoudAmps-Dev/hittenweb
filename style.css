@@ -650,6 +650,35 @@ h3 { font-size: var(--text-xl); }
 .videos-body .empty-state { border-color: rgba(232,232,232,0.08); }
 
 /* ============================================================
+   VIDEOS GRID
+   ============================================================ */
+.videos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(var(--sp-4), 3vw, var(--sp-8));
+}
+
+@media (min-width: 768px) {
+  .videos-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.video-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+  background: var(--surface-2);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {
