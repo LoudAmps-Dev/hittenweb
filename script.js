@@ -1,8 +1,41 @@
 /* ============================================================
+   DECLARACIONES — todo antes de cualquier llamada
+   ============================================================ */
+const navbar        = document.getElementById('navbar');
+const navLinks      = document.querySelectorAll('.nav-link');
+const sections      = document.querySelectorAll('section[id]');
+const burger        = document.getElementById('navBurger');
+const mobileMenu    = document.getElementById('mobileMenu');
+const heroBg        = document.getElementById('heroBg');
+const prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+/* ============================================================
+   HERO BACKGROUND
+   ============================================================ */
+heroBg.style.backgroundImage = "url('assets/Copia de Copia de Hitten promo 2.jpg')";
+
+/* ============================================================
    NAVBAR — transparent on hero, solid on scroll
    ============================================================ */
-const navbar  = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
+function parallaxHero() {
+  const hero    = document.querySelector('.hero');
+  const scrolled = window.scrollY;
+  if (scrolled < hero.offsetHeight) {
+    heroBg.style.transform = `translateY(${scrolled * 0.28}px)`;
+  }
+}
+
+function updateActiveLink() {
+  const scrollMid = window.scrollY + window.innerHeight / 3;
+  sections.forEach(section => {
+    const id   = section.getAttribute('id');
+    const link = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (!link) return;
+    const top    = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    link.classList.toggle('active', scrollMid >= top && scrollMid < bottom);
+  });
+}
 
 function onScroll() {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
@@ -14,31 +47,8 @@ window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 /* ============================================================
-   ACTIVE NAV LINK
-   ============================================================ */
-const sections = document.querySelectorAll('section[id]');
-
-function updateActiveLink() {
-  const scrollMid = window.scrollY + window.innerHeight / 3;
-
-  sections.forEach(section => {
-    const id   = section.getAttribute('id');
-    const link = document.querySelector(`.nav-link[href="#${id}"]`);
-    if (!link) return;
-
-    const top    = section.offsetTop;
-    const bottom = top + section.offsetHeight;
-
-    link.classList.toggle('active', scrollMid >= top && scrollMid < bottom);
-  });
-}
-
-/* ============================================================
    MOBILE MENU
    ============================================================ */
-const burger     = document.getElementById('navBurger');
-const mobileMenu = document.getElementById('mobileMenu');
-
 function toggleMenu(open) {
   burger.classList.toggle('open', open);
   mobileMenu.classList.toggle('open', open);
@@ -62,22 +72,6 @@ document.addEventListener('keydown', e => {
 });
 
 /* ============================================================
-   HERO BACKGROUND + PARALLAX
-   ============================================================ */
-const heroBg      = document.getElementById('heroBg');
-const prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-
-heroBg.style.backgroundImage = "url('assets/Copia de Copia de Hitten promo 2.jpg')";
-
-function parallaxHero() {
-  const hero    = document.querySelector('.hero');
-  const scrolled = window.scrollY;
-  if (scrolled < hero.offsetHeight) {
-    heroBg.style.transform = `translateY(${scrolled * 0.28}px)`;
-  }
-}
-
-/* ============================================================
    SCROLL REVEAL via IntersectionObserver
    ============================================================ */
 const revealEls = document.querySelectorAll('.reveal');
@@ -96,8 +90,6 @@ const revealObserver = new IntersectionObserver(
 
 revealEls.forEach(el => revealObserver.observe(el));
 
-/* Fallback: si el observer no dispara (file://, Safari antiguo),
-   hace todo visible después de 600ms */
 setTimeout(() => {
   revealEls.forEach(el => el.classList.add('visible'));
 }, 600);
