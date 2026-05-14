@@ -619,16 +619,10 @@ h3 { font-size: var(--text-xl); }
 }
 
 /* ============================================================
-   SCROLL REVEAL
+   SCROLL REVEAL — activar al final cuando todo el contenido esté listo
    ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 750ms var(--ease-out), transform 750ms var(--ease-out);
-}
-.reveal.visible    { opacity: 1; transform: none; }
-.reveal-delay      { transition-delay: 140ms; }
-.reveal-delay-2    { transition-delay: 280ms; }
+.reveal         { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
 
 /* ============================================================
    KEYFRAMES
