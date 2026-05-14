@@ -367,9 +367,9 @@ h3 { font-size: var(--text-xl); }
 }
 
 .hero-logo {
-  width: clamp(160px, 38vw, 400px);
+  width: clamp(240px, 54vw, 560px);
   height: auto;
-  animation: fadeUp 1s var(--ease-out) both;
+  animation: glitchEntry 2.6s 0.2s both;
 }
 
 .hero-sub {
@@ -875,6 +875,28 @@ h3 { font-size: var(--text-xl); }
 /* ============================================================
    KEYFRAMES
    ============================================================ */
+@keyframes glitchEntry {
+  /* Fade in desde abajo */
+  0%   { opacity: 0; transform: translateY(22px); clip-path: inset(0); filter: none; }
+  8%   { opacity: 1; transform: translateY(0);    clip-path: inset(0); }
+
+  /* Burst glitch #1 — agresivo */
+  10%  { transform: translateX(-10px) skewX(-5deg); clip-path: inset(8%  0 58% 0); filter: brightness(2) hue-rotate(25deg); }
+  11%  { transform: translateX( 12px) skewX( 4deg); clip-path: inset(52% 0  8% 0); filter: brightness(0.6) hue-rotate(-15deg); }
+  12%  { transform: translateX( -5px);               clip-path: inset(28% 0 32% 0); filter: brightness(1.4); }
+  14%  { transform: none;                            clip-path: inset(0);           filter: none; }
+
+  /* Estable en el 80% de la animación */
+  74%  { transform: none; clip-path: inset(0); filter: none; }
+
+  /* Micro glitch #2 — sutil */
+  75%  { transform: translateX(5px) skewX(2deg); clip-path: inset(38% 0 22% 0); filter: brightness(1.6); }
+  76%  { transform: translateX(-3px);             clip-path: inset(0);           filter: none; }
+  77%  { transform: none; }
+
+  100% { opacity: 1; transform: none; clip-path: inset(0); filter: none; }
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: none; }
