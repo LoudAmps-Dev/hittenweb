@@ -597,6 +597,15 @@ h3 { font-size: var(--text-xl); }
   color: var(--black) !important;
 }
 
+/* Hover en fila de concierto — texto negro sobre fondo dorado */
+.bit-widget .bit-details:hover .bit-date,
+.bit-widget .bit-details:hover .bit-startTime,
+.bit-widget .bit-details:hover .bit-venue,
+.bit-widget .bit-details:hover .bit-location,
+.bit-widget .bit-details:hover span {
+  color: var(--black) !important;
+}
+
 .bit-widget .bit-no-events-label {
   color: var(--text-muted) !important;
   font-family: var(--font-body) !important;
