@@ -524,21 +524,15 @@ h3 { font-size: var(--text-xl); }
   color: var(--black) !important;
 }
 
-/* Botones Tickets / Free — fondo transparente para que el texto sea visible */
-.bit-widget .bit-offers-btn,
-.bit-widget .bit-rsvp-btn,
-.bit-widget .bit-ticket-btn,
-.bit-widget .bit-event-offers-btn {
+/* Botón Tickets — fondo dorado con texto negro visible */
+.bit-widget a:not(.bit-rsvp-btn) {
   background: transparent !important;
   background-color: transparent !important;
   color: var(--gold) !important;
   border: 1.5px solid var(--gold) !important;
 }
 
-.bit-widget .bit-offers-btn:hover,
-.bit-widget .bit-rsvp-btn:hover,
-.bit-widget .bit-ticket-btn:hover,
-.bit-widget .bit-event-offers-btn:hover {
+.bit-widget a:not(.bit-rsvp-btn):hover {
   background: var(--gold) !important;
   color: var(--black) !important;
 }
