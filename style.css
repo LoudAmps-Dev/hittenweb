@@ -484,6 +484,54 @@ h3 { font-size: var(--text-xl); }
 }
 
 /* ============================================================
+   BANDSINTOWN WIDGET OVERRIDES
+   ============================================================ */
+.bit-widget {
+  font-family: var(--font-body) !important;
+  background: transparent !important;
+}
+
+.bit-widget .bit-event {
+  border-bottom: 1px solid var(--gold-border) !important;
+  background: transparent !important;
+  padding: var(--sp-4) 0 !important;
+}
+
+.bit-widget .bit-event:first-child {
+  border-top: 1px solid var(--gold-border) !important;
+}
+
+.bit-widget .bit-date,
+.bit-widget .bit-venue,
+.bit-widget .bit-location {
+  color: var(--text) !important;
+  font-family: var(--font-body) !important;
+}
+
+.bit-widget .bit-date {
+  color: var(--gold) !important;
+  font-weight: 600 !important;
+}
+
+.bit-widget a {
+  color: var(--gold) !important;
+  border-color: var(--gold-border) !important;
+  transition: all 200ms !important;
+}
+
+.bit-widget a:hover {
+  background: var(--gold) !important;
+  color: var(--black) !important;
+}
+
+.bit-widget .bit-no-events-label {
+  color: var(--text-muted) !important;
+  font-family: var(--font-body) !important;
+  text-align: center !important;
+  padding: var(--sp-12) 0 !important;
+}
+
+/* ============================================================
    MUSIC
    ============================================================ */
 .music { background: var(--surface); }
