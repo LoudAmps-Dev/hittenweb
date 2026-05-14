@@ -91,7 +91,13 @@ const revealObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0, rootMargin: '0px 0px -60px 0px' }
+  { threshold: 0, rootMargin: '0px 0px -40px 0px' }
 );
 
 revealEls.forEach(el => revealObserver.observe(el));
+
+/* Fallback: si el observer no dispara (file://, Safari antiguo),
+   hace todo visible después de 600ms */
+setTimeout(() => {
+  revealEls.forEach(el => el.classList.add('visible'));
+}, 600);
