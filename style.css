@@ -655,7 +655,7 @@ h3 { font-size: var(--text-xl); }
   opacity: 0;
   transition: opacity 300ms var(--ease);
 }
-.album-card:hover .album-overlay { opacity: 1; }
+.album-cover:hover .album-overlay { opacity: 1; }
 
 .spotify-btn {
   display: inline-flex;
