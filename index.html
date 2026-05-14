@@ -19,11 +19,15 @@
                 <img src="assets/HITTEN LOGO RESTAURADO REDUCIDO.png" alt="HITTEN">
             </a>
             <ul class="nav-links" role="list">
-                <li><a href="#home"   class="nav-link">Home</a></li>
                 <li><a href="#bio"    class="nav-link">The Band</a></li>
+                <li class="nav-bolt" aria-hidden="true"><svg width="6" height="11" viewBox="0 0 6 11" fill="currentColor"><path d="M3.8 0 .5 6.5H3L1.8 11 5.5 4.5H3L3.8 0Z"/></svg></li>
                 <li><a href="#shows"  class="nav-link">Shows</a></li>
+                <li class="nav-bolt" aria-hidden="true"><svg width="6" height="11" viewBox="0 0 6 11" fill="currentColor"><path d="M3.8 0 .5 6.5H3L1.8 11 5.5 4.5H3L3.8 0Z"/></svg></li>
                 <li><a href="#music"  class="nav-link">Music</a></li>
+                <li class="nav-bolt" aria-hidden="true"><svg width="6" height="11" viewBox="0 0 6 11" fill="currentColor"><path d="M3.8 0 .5 6.5H3L1.8 11 5.5 4.5H3L3.8 0Z"/></svg></li>
                 <li><a href="#videos" class="nav-link">Videos</a></li>
+                <li class="nav-bolt" aria-hidden="true"><svg width="6" height="11" viewBox="0 0 6 11" fill="currentColor"><path d="M3.8 0 .5 6.5H3L1.8 11 5.5 4.5H3L3.8 0Z"/></svg></li>
+                <li><a href="#merch" class="nav-link">Store</a></li>
             </ul>
             <button class="nav-burger" id="navBurger"
                     aria-label="Open menu"
@@ -37,11 +41,11 @@
     <!-- ═══ MOBILE MENU ═══ -->
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <ul role="list">
-            <li><a href="#home"   class="mobile-link">Home</a></li>
             <li><a href="#bio"    class="mobile-link">The Band</a></li>
             <li><a href="#shows"  class="mobile-link">Shows</a></li>
             <li><a href="#music"  class="mobile-link">Music</a></li>
             <li><a href="#videos" class="mobile-link">Videos</a></li>
+            <li><a href="#merch"  class="mobile-link">Store</a></li>
         </ul>
         <div class="mobile-socials">
             <a href="https://www.instagram.com/hittenofficial/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
@@ -75,6 +79,14 @@
             </a>
         </section>
 
+        <!-- ═══ MARQUEE ═══ -->
+        <div class="marquee-bar" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Welcome to the HITTEN official website&nbsp;&nbsp;·&nbsp;&nbsp;Hard 'n Heavy EST. 2011&nbsp;&nbsp;·&nbsp;&nbsp;Welcome to the HITTEN official website&nbsp;&nbsp;·&nbsp;&nbsp;Hard 'n Heavy EST. 2011&nbsp;&nbsp;·&nbsp;&nbsp;Welcome to the HITTEN official website&nbsp;&nbsp;·&nbsp;&nbsp;Hard 'n Heavy EST. 2011&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+                <span>Welcome to the HITTEN official website&nbsp;&nbsp;·&nbsp;&nbsp;Hard 'n Heavy EST. 2011&nbsp;&nbsp;·&nbsp;&nbsp;Welcome to the HITTEN official website&nbsp;&nbsp;·&nbsp;&nbsp;Hard 'n Heavy EST. 2011&nbsp;&nbsp;·&nbsp;&nbsp;Welcome to the HITTEN official website&nbsp;&nbsp;·&nbsp;&nbsp;Hard 'n Heavy EST. 2011&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
         <!-- ═══ BIO ═══ -->
         <section id="bio" class="bio section">
             <div class="bio-inner">
@@ -86,6 +98,10 @@
                     </blockquote>
                     <p>A true Hard N' Heavy machine. The band blends arena-sized hooks, screaming twin guitars, powerful vocals, and a fierce live energy that brings the golden era of Rock into the present day — <em>'Best Of Both Worlds'</em> as Van Halen said.</p>
                     <p>Over the past decade, HITTEN has taken their show across Europe and beyond — including a successful US tour and two sold-out nights in Tokyo. Their explosive live energy has earned them spots at major festivals such as Wacken Open Air and Rock Imperium.</p>
+                    <div class="bio-actions">
+                        <a href="#booking" class="btn btn-primary">Booking</a>
+                        <a href="#press" class="btn btn-outline">Press & EPK</a>
+                    </div>
                 </div>
                 <div class="bio-photo reveal reveal-delay">
                     <img src="assets/theband.png" alt="HITTEN band photo" loading="lazy">
@@ -141,12 +157,6 @@
                     <article class="album-card album-featured reveal">
                         <div class="album-cover">
                             <img src="assets/albums/a3026073708_10.jpg" alt="While Passion Lasts" loading="lazy">
-                            <div class="album-overlay" aria-hidden="true">
-                                <a href="https://open.spotify.com/intl-es/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="spotify-btn" tabindex="-1">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                                    Listen on Spotify
-                                </a>
-                            </div>
                         </div>
                         <div class="album-info">
                             <span class="album-badge">Latest Release</span>
@@ -171,12 +181,6 @@
                     <article class="album-card reveal reveal-delay">
                         <div class="album-cover">
                             <img src="assets/albums/triumph.jpg" alt="Triumph &amp; Tragedy" loading="lazy">
-                            <div class="album-overlay" aria-hidden="true">
-                                <a href="https://open.spotify.com/intl-es/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="spotify-btn" tabindex="-1">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                                    Listen on Spotify
-                                </a>
-                            </div>
                         </div>
                         <div class="album-info">
                             <h3>Triumph &amp; Tragedy</h3>
@@ -187,6 +191,10 @@
                                 <span class="format-tag">Tape</span>
                                 <span class="format-tag">Digital</span>
                             </div>
+                            <a href="https://open.spotify.com/intl-es/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="btn btn-primary album-cta">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                                Listen on Spotify
+                            </a>
                         </div>
                     </article>
 
@@ -194,12 +202,6 @@
                     <article class="album-card reveal reveal-delay-2">
                         <div class="album-cover">
                             <img src="assets/albums/twist.jpg" alt="Twist of Fate" loading="lazy">
-                            <div class="album-overlay" aria-hidden="true">
-                                <a href="https://open.spotify.com/intl-es/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="spotify-btn" tabindex="-1">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-                                    Listen on Spotify
-                                </a>
-                            </div>
                         </div>
                         <div class="album-info">
                             <h3>Twist of Fate</h3>
@@ -210,6 +212,10 @@
                                 <span class="format-tag">Tape</span>
                                 <span class="format-tag">Digital</span>
                             </div>
+                            <a href="https://open.spotify.com/intl-es/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="btn btn-primary album-cta">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                                Listen on Spotify
+                            </a>
                         </div>
                     </article>
 
@@ -226,28 +232,150 @@
                 </div>
                 <div class="videos-grid reveal">
                     <div class="video-item">
-                        <span class="video-num" aria-hidden="true">01</span>
                         <div class="video-wrap">
-                            <iframe
-                                src="https://www.youtube.com/embed/QdadtnK2VJY"
-                                title="HITTEN — Videoclip"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
+                            <div class="video-facade" data-yt="QdadtnK2VJY">
+                                <img src="https://img.youtube.com/vi/QdadtnK2VJY/maxresdefault.jpg"
+                                     alt="HITTEN — Blood from a Stone"
+                                     class="video-thumb">
+                                <button class="video-play" aria-label="Play video">
+                                    <span class="video-play-ring">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
+                        <p class="video-title">Blood from a Stone</p>
                     </div>
                     <div class="video-item">
-                        <span class="video-num" aria-hidden="true">02</span>
                         <div class="video-wrap">
-                            <iframe
-                                src="https://www.youtube.com/embed/LeOdlYlMnc0"
-                                title="HITTEN — Videoclip"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
+                            <div class="video-facade" data-yt="LeOdlYlMnc0">
+                                <img src="https://img.youtube.com/vi/LeOdlYlMnc0/maxresdefault.jpg"
+                                     alt="HITTEN — Mr Know It All"
+                                     class="video-thumb">
+                                <button class="video-play" aria-label="Play video">
+                                    <span class="video-play-ring">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
+                        <p class="video-title">Mr Know It All</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ MERCH ═══ -->
+        <section id="merch" class="merch section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="label">Official Store</span>
+                    <h2>Merch</h2>
+                </div>
+                <div class="merch-grid reveal">
+                    <a href="https://hittenofficial.bandcamp.com/merch/built-to-rock-yellow" target="_blank" rel="noopener" class="merch-item">
+                        <div class="merch-img-wrap">
+                            <img src="https://f4.bcbits.com/img/0028814576_10.jpg" alt="Built To Rock Yellow Shirt" loading="lazy">
+                        </div>
+                        <div class="merch-info">
+                            <span class="merch-tag">Apparel</span>
+                            <p class="merch-name">Built To Rock</p>
+                            <p class="merch-price">€15</p>
+                        </div>
+                    </a>
+                    <a href="https://hittenofficial.bandcamp.com/merch/mr-know-it-all" target="_blank" rel="noopener" class="merch-item">
+                        <div class="merch-img-wrap">
+                            <img src="https://f4.bcbits.com/img/0033478578_10.jpg" alt="Mr Know It All Shirt" loading="lazy">
+                        </div>
+                        <div class="merch-info">
+                            <span class="merch-tag">Apparel</span>
+                            <p class="merch-name">Mr Know It All</p>
+                            <p class="merch-price">€20</p>
+                        </div>
+                    </a>
+                    <a href="https://hittenofficial.bandcamp.com/album/triumph-tragedy" target="_blank" rel="noopener" class="merch-item">
+                        <div class="merch-img-wrap">
+                            <img src="https://f4.bcbits.com/img/0025380350_10.jpg" alt="Triumph & Tragedy Black Vinyl" loading="lazy">
+                        </div>
+                        <div class="merch-info">
+                            <span class="merch-tag">Vinyl</span>
+                            <p class="merch-name">Triumph & Tragedy</p>
+                            <p class="merch-price">€19.99</p>
+                        </div>
+                    </a>
+                    <a href="https://hittenofficial.bandcamp.com/album/while-passion-lasts" target="_blank" rel="noopener" class="merch-item">
+                        <div class="merch-img-wrap">
+                            <img src="https://f4.bcbits.com/img/0033478461_10.jpg" alt="While Passion Lasts Black Vinyl" loading="lazy">
+                        </div>
+                        <div class="merch-info">
+                            <span class="merch-tag">Vinyl</span>
+                            <p class="merch-name">While Passion Lasts</p>
+                            <p class="merch-price">€20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="merch-footer reveal">
+                    <a href="https://hittenofficial.bandcamp.com/merch" target="_blank" rel="noopener" class="btn btn-outline">
+                        See Full Store
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ PRESS / EPK ═══ -->
+        <section id="press" class="press section">
+            <div class="press-bg" aria-hidden="true">
+                <img src="assets/HITTEN FOTO 3.jpg" alt="" class="press-bg-img" loading="lazy">
+                <div class="press-bg-overlay"></div>
+            </div>
+            <div class="container press-container">
+                <div class="press-inner reveal">
+                    <div class="press-header">
+                        <span class="label">Media</span>
+                        <h2>Press & EPK</h2>
+                        <p class="press-desc">Official materials for press, media outlets and promoters.</p>
+                    </div>
+                    <div class="press-downloads">
+                        <a href="#" class="btn btn-outline press-dl">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Technical Rider
+                        </a>
+                        <a href="#" class="btn btn-primary press-dl">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Press Kit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ BOOKING ═══ -->
+        <section id="booking" class="booking section">
+            <div class="container">
+                <div class="booking-inner reveal">
+                    <div class="booking-header">
+                        <span class="label">Booking</span>
+                        <h2>Book HITTEN</h2>
+                        <p>For live performances, festival appearances and touring inquiries, reach out directly to our booking manager.</p>
+                    </div>
+                    <div class="booking-card">
+                        <p class="booking-name">Julio Romero</p>
+                        <p class="booking-role muted">Booking Manager</p>
+                        <a href="mailto:booking@officialhitten.com" class="btn btn-primary booking-cta">
+                            booking@officialhitten.com
+                        </a>
                     </div>
                 </div>
             </div>

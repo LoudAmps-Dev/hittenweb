@@ -76,3 +76,19 @@ revealEls.forEach(el => revealObserver.observe(el));
 setTimeout(() => {
   revealEls.forEach(el => el.classList.add('visible'));
 }, 600);
+
+/* ============================================================
+   VIDEO FACADE — swap thumbnail for iframe on click
+   ============================================================ */
+document.querySelectorAll('.video-facade').forEach(facade => {
+  facade.addEventListener('click', () => {
+    const id = facade.dataset.yt;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    iframe.title = 'HITTEN — Videoclip';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    facade.parentNode.replaceChild(iframe, facade);
+  });
+});
