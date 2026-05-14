@@ -6,25 +6,9 @@ const navLinks      = document.querySelectorAll('.nav-link');
 const sections      = document.querySelectorAll('section[id]');
 const burger        = document.getElementById('navBurger');
 const mobileMenu    = document.getElementById('mobileMenu');
-const heroBg        = document.getElementById('heroBg');
-const prefersMotion = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-
-/* ============================================================
-   HERO BACKGROUND
-   ============================================================ */
-heroBg.style.backgroundImage = "url('assets/Copia de Copia de Hitten promo 2.jpg')";
-
 /* ============================================================
    NAVBAR — transparent on hero, solid on scroll
    ============================================================ */
-function parallaxHero() {
-  const hero    = document.querySelector('.hero');
-  const scrolled = window.scrollY;
-  if (scrolled < hero.offsetHeight) {
-    heroBg.style.transform = `translateY(${scrolled * 0.28}px)`;
-  }
-}
-
 function updateActiveLink() {
   const scrollMid = window.scrollY + window.innerHeight / 3;
   sections.forEach(section => {
@@ -40,7 +24,6 @@ function updateActiveLink() {
 function onScroll() {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
   updateActiveLink();
-  if (prefersMotion) parallaxHero();
 }
 
 window.addEventListener('scroll', onScroll, { passive: true });
