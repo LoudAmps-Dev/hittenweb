@@ -513,14 +513,23 @@ h3 { font-size: var(--text-xl); }
   font-weight: 600 !important;
 }
 
-.bit-widget a {
+.bit-widget a,
+.bit-widget button,
+.bit-widget [class*="btn"],
+.bit-widget [class*="button"] {
   color: var(--gold) !important;
-  border-color: var(--gold-border) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1.5px solid var(--gold) !important;
   transition: all 200ms !important;
 }
 
-.bit-widget a:hover {
+.bit-widget a:hover,
+.bit-widget button:hover,
+.bit-widget [class*="btn"]:hover,
+.bit-widget [class*="button"]:hover {
   background: var(--gold) !important;
+  background-color: var(--gold) !important;
   color: var(--black) !important;
 }
 
