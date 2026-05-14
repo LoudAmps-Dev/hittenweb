@@ -524,18 +524,7 @@ h3 { font-size: var(--text-xl); }
   color: var(--black) !important;
 }
 
-/* Botón Tickets — fondo dorado con texto negro visible */
-.bit-widget a:not(.bit-rsvp-btn) {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: var(--gold) !important;
-  border: 1.5px solid var(--gold) !important;
-}
-
-.bit-widget a:not(.bit-rsvp-btn):hover {
-  background: var(--gold) !important;
-  color: var(--black) !important;
-}
+/* Botones Tickets / Free — pendiente de clase exacta del widget */
 
 .bit-widget .bit-no-events-label {
   color: var(--text-muted) !important;
