@@ -524,7 +524,24 @@ h3 { font-size: var(--text-xl); }
   color: var(--black) !important;
 }
 
-/* Botones Tickets / Free — pendiente de clase exacta del widget */
+/* Botón Tickets — clase exacta confirmada */
+.bit-widget .bit-offers.bit-button {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1.5px solid var(--gold) !important;
+}
+
+.bit-widget .bit-offers.bit-button .bit-offers-text {
+  color: var(--gold) !important;
+}
+
+.bit-widget .bit-offers.bit-button:hover {
+  background: var(--gold) !important;
+}
+
+.bit-widget .bit-offers.bit-button:hover .bit-offers-text {
+  color: var(--black) !important;
+}
 
 .bit-widget .bit-no-events-label {
   color: var(--text-muted) !important;
