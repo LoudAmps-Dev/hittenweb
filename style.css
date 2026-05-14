@@ -524,7 +524,7 @@ h3 { font-size: var(--text-xl); }
   color: var(--black) !important;
 }
 
-/* Botón Tickets — clase exacta confirmada */
+/* Botones Tickets y Request a Show */
 .bit-widget .bit-offers.bit-button {
   background: transparent !important;
   background-color: transparent !important;
@@ -540,6 +540,18 @@ h3 { font-size: var(--text-xl); }
 }
 
 .bit-widget .bit-offers.bit-button:hover .bit-offers-text {
+  color: var(--black) !important;
+}
+
+.bit-widget .bit-play-my-city-button {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1.5px solid var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+.bit-widget .bit-play-my-city-button:hover {
+  background: var(--gold) !important;
   color: var(--black) !important;
 }
 
