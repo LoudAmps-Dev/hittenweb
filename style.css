@@ -643,7 +643,7 @@ h3 { font-size: var(--text-xl); }
   object-fit: cover;
   transition: transform 600ms var(--ease);
 }
-.album-card:hover .album-cover img { transform: scale(1.06); }
+.album-cover:hover img { transform: scale(1.06); }
 
 .album-overlay {
   position: absolute;
