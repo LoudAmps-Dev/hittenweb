@@ -410,59 +410,101 @@ h3 { font-size: var(--text-xl); }
 /* ============================================================
    BIO
    ============================================================ */
-.bio { background: var(--surface); }
+.bio {
+  background: var(--surface);
+  padding-block: 0;
+  overflow: hidden;
+}
 
-.bio-grid {
+.bio-inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(var(--sp-8), 6vw, var(--sp-16));
-  align-items: center;
-}
-@media (min-width: 768px) {
-  .bio-grid { grid-template-columns: 1fr 1fr; }
+  min-height: 600px;
 }
 
-.bio-text h2 { margin-bottom: var(--sp-6); }
+@media (min-width: 900px) {
+  .bio-inner { grid-template-columns: 1fr 1fr; min-height: 700px; }
+}
+
+/* Text side */
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(var(--sp-12), 8vw, var(--sp-24)) clamp(var(--sp-6), 6vw, var(--sp-16));
+  padding-left: clamp(var(--sp-4), 5vw, var(--sp-16));
+  max-width: 680px;
+}
+
+@media (min-width: 1200px) {
+  .bio-text { padding-left: calc((100vw - 1200px) / 2 + var(--sp-16)); }
+}
+
+.bio-text h2 {
+  margin-bottom: var(--sp-6);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.bio-quote {
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--gold);
+  border-left: 2px solid var(--gold);
+  padding-left: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  line-height: 1.5;
+}
 
 .bio-text p {
   color: var(--text-muted);
-  max-width: 46ch;
   margin-bottom: var(--sp-4);
+  max-width: 48ch;
 }
 .bio-text p:last-child { margin-bottom: 0; }
+.bio-text em { color: var(--text); font-style: italic; }
 
-/* Image frame with gold offset border */
-.bio-img-wrap {
+/* Photo side */
+.bio-photo {
   position: relative;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
-}
-.bio-img-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px solid var(--gold-border);
-  z-index: 1;
-  pointer-events: none;
-}
-.bio-img-wrap::after {
-  content: '';
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: -14px;
-  bottom: -14px;
-  border: 1px solid var(--gold-border);
-  pointer-events: none;
+  min-height: 480px;
 }
 
-.bio-img-wrap img {
+@media (min-width: 900px) {
+  .bio-photo { min-height: unset; }
+}
+
+.bio-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms var(--ease);
+  object-position: center top;
+  display: block;
 }
-.bio-img-wrap:hover img { transform: scale(1.04); }
+
+/* Gradient fade blending photo into text on desktop */
+.bio-photo-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--surface) 0%,
+    transparent 30%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 899px) {
+  .bio-photo-fade {
+    background: linear-gradient(
+      to bottom,
+      var(--surface) 0%,
+      transparent 20%,
+      transparent 80%,
+      var(--surface) 100%
+    );
+  }
+}
 
 /* ============================================================
    SHOWS
