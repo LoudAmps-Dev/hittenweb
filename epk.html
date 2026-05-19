@@ -861,7 +861,7 @@
                 const past = !entry.isIntersecting;
                 epkNav.classList.toggle('epk-nav--visible', past);
                 if (epkTopBtn) epkTopBtn.classList.toggle('epk-nav--visible', past);
-            }, { threshold: 0.1 }).observe(epkHeader);
+            }, { threshold: 0.6 }).observe(epkHeader);
 
             // Highlight nav link for the section currently in view
             const navLinks = epkNav.querySelectorAll('.epk-nav-link');
