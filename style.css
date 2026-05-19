@@ -266,13 +266,6 @@ body::after {
   .marquee-track { animation: none; }
 }
 
-/* ============================================================
-   MOBILE — sin navbar ni menú hamburguesa
-   ============================================================ */
-@media (max-width: 767px) {
-  #navbar,
-  .mobile-menu { display: none !important; }
-}
 
 /* ============================================================
    NAVBAR
@@ -304,6 +297,10 @@ body::after {
   align-items: center;
   justify-content: flex-end;
   position: relative;
+}
+
+@media (max-width: 767px) {
+  .nav-inner { justify-content: center; }
 }
 
 @media (min-width: 768px) {
@@ -360,10 +357,9 @@ body::after {
 /* Burger */
 .nav-burger {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 44px;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   height: 44px;
   background: none;
   border: none;
@@ -373,16 +369,35 @@ body::after {
 }
 @media (min-width: 768px) { .nav-burger { display: none; } }
 
-.nav-burger span {
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.burger-icon span {
   display: block;
   height: 1.5px;
   background: var(--text);
   transition: all 260ms var(--ease);
   transform-origin: center;
 }
-.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-burger.open .burger-icon span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open .burger-icon span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-burger.open .burger-icon span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.burger-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: opacity 200ms var(--ease);
+}
+.nav-burger.open .burger-label { opacity: 0; }
 
 /* ============================================================
    MOBILE MENU
@@ -391,7 +406,9 @@ body::after {
   position: fixed;
   inset: 0;
   z-index: 90;
-  background: rgba(8, 8, 8, 0.98);
+  background: rgba(8, 8, 8, 0.87);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -399,7 +416,7 @@ body::after {
   gap: var(--sp-12);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 300ms var(--ease);
+  transition: opacity 320ms var(--ease);
 }
 .mobile-menu.open {
   opacity: 1;
@@ -418,10 +435,11 @@ body::after {
   font-size: clamp(2.5rem, 8vw, 4rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text);
   transition: color 200ms;
 }
-.mobile-link:hover { color: var(--gold); }
+.mobile-link:hover,
+.mobile-link:active { color: var(--gold); }
 
 .mobile-socials {
   display: flex;
