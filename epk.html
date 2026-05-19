@@ -456,6 +456,13 @@
 
         /* ── Mobile responsive ── */
         @media (max-width: 767px) {
+            /* Adaptar el header a la proporción exacta de press.jpg (1080×1350 = 4:5)
+               así object-fit: cover no tiene nada que recortar */
+            .epk-header {
+                height: auto;
+                min-height: unset;
+                aspect-ratio: 1080 / 1350;
+            }
             .epk-logo {
                 transform: none;
                 margin-bottom: 16px;
