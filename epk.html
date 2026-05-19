@@ -67,7 +67,7 @@
         }
         .epk-logo {
             width: min(480px, 80vw);
-            margin: 0 auto 20px;
+            margin: 0 auto 40px;
             transform: translateY(40px);
         }
         .epk-tagline {
@@ -412,6 +412,48 @@
         }
         .epk-footer a { color: var(--gold); }
 
+        /* ── Sticky nav ── */
+        .epk-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            display: flex;
+            justify-content: center;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gold-border);
+            overflow-x: auto;
+            scrollbar-width: none;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .epk-nav::-webkit-scrollbar { display: none; }
+        .epk-nav.epk-nav--visible { transform: translateY(0); }
+
+        .epk-nav-link {
+            padding: 13px 20px;
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .epk-nav-link:hover { color: var(--text); }
+        .epk-nav-link.epk-nav--active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        /* ── Mobile: top button ── */
+        .epk-top-btn {
+            display: none;
+        }
+
         /* ── Mobile responsive ── */
         @media (max-width: 767px) {
             .epk-logo {
@@ -420,6 +462,29 @@
             }
             .epk-header-content {
                 padding: 0 24px 32px;
+            }
+            .epk-nav { display: none; }
+            .epk-top-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                bottom: 24px;
+                right: 20px;
+                z-index: 90;
+                width: 44px;
+                height: 44px;
+                background: rgba(8, 8, 8, 0.9);
+                border: 1px solid var(--gold-border);
+                color: var(--gold);
+                font-size: 1.1rem;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+            .epk-top-btn.epk-nav--visible {
+                opacity: 1;
+                pointer-events: auto;
             }
         }
 
@@ -443,8 +508,20 @@
         </div>
     </header>
 
+    <!-- ═══ STICKY NAV ═══ -->
+    <nav class="epk-nav" id="epk-nav" aria-label="EPK sections">
+        <a href="#epk-bio" class="epk-nav-link">Bio</a>
+        <a href="#epk-band" class="epk-nav-link">The Band</a>
+        <a href="#epk-live" class="epk-nav-link">Live</a>
+        <a href="#epk-discography" class="epk-nav-link">Discography</a>
+        <a href="#epk-videos" class="epk-nav-link">Videos</a>
+        <a href="#epk-social" class="epk-nav-link">Social</a>
+        <a href="#epk-booking" class="epk-nav-link">Booking</a>
+    </nav>
+    <a href="#" class="epk-top-btn" id="epk-top-btn" aria-label="Back to top">↑</a>
+
     <!-- ═══ BIO ═══ -->
-    <div class="epk-section reveal-on-scroll">
+    <div class="epk-section reveal-on-scroll" id="epk-bio">
         <h2>Bio</h2>
         <p class="epk-bio-text">
             HITTEN is Spain's most relentless rock 'n roll export — a five-piece heavy metal machine forged in Murcia in 2011 and built to last. Equal parts arena swagger and street-level grit, the band channels the golden era of hard rock and classic heavy metal into something that feels viscerally alive: screaming twin guitars, anthemic hooks, and a rhythm section that hits like a freight train.
@@ -478,7 +555,7 @@
     </div>
 
     <!-- ═══ THE BAND ═══ -->
-    <div class="epk-section">
+    <div class="epk-section" id="epk-band">
         <h2 class="reveal-on-scroll">The Band</h2>
         <div class="epk-members-grid">
 
@@ -541,7 +618,7 @@
     </div>
 
     <!-- ═══ NOTABLE PERFORMANCES ═══ -->
-    <div class="epk-dark">
+    <div class="epk-dark" id="epk-live">
         <div class="epk-section">
             <h2 class="reveal-on-scroll">Notable Performances</h2>
             <div class="epk-performances-grid">
@@ -562,7 +639,7 @@
     </div>
 
     <!-- ═══ DISCOGRAPHY ═══ -->
-    <div class="epk-section">
+    <div class="epk-section" id="epk-discography">
         <h2 class="reveal-on-scroll">Discography</h2>
 
         <div class="epk-spotify-wrap reveal-on-scroll">
@@ -647,7 +724,7 @@
     </div>
 
     <!-- ═══ MUSIC VIDEOS ═══ -->
-    <div class="epk-dark">
+    <div class="epk-dark" id="epk-videos">
         <div class="epk-section">
             <h2 class="reveal-on-scroll">Music Videos</h2>
             <div class="epk-videos-grid">
@@ -680,7 +757,7 @@
     </div>
 
     <!-- ═══ SOCIAL ═══ -->
-    <div class="epk-dark">
+    <div class="epk-dark" id="epk-social">
         <div class="epk-section reveal-on-scroll">
             <h2>Followers</h2>
             <div class="epk-social-inner">
@@ -714,7 +791,7 @@
     </div>
 
     <!-- ═══ BOOKING ═══ -->
-    <div class="epk-section epk-booking reveal-on-scroll">
+    <div class="epk-section epk-booking reveal-on-scroll" id="epk-booking">
         <h2>Booking</h2>
         <p class="epk-booking-desc">For live performances, festival appearances and touring inquiries.</p>
         <p class="epk-booking-name">Julio Romero</p>
@@ -772,6 +849,35 @@
 
         const statsBar = document.querySelector('.epk-stats');
         if (statsBar) statsObserver.observe(statsBar);
+
+        // ── Sticky nav: show after header, highlight active section ──
+        const epkNav    = document.getElementById('epk-nav');
+        const epkTopBtn = document.getElementById('epk-top-btn');
+        const epkHeader = document.querySelector('.epk-header');
+
+        if (epkNav && epkHeader) {
+            // Show/hide nav when header leaves viewport
+            new IntersectionObserver(([entry]) => {
+                const past = !entry.isIntersecting;
+                epkNav.classList.toggle('epk-nav--visible', past);
+                if (epkTopBtn) epkTopBtn.classList.toggle('epk-nav--visible', past);
+            }, { threshold: 0.1 }).observe(epkHeader);
+
+            // Highlight nav link for the section currently in view
+            const navLinks = epkNav.querySelectorAll('.epk-nav-link');
+            const sections = Array.from(navLinks).map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+            const sectionObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    navLinks.forEach(l => l.classList.remove('epk-nav--active'));
+                    const link = epkNav.querySelector(`[href="#${entry.target.id}"]`);
+                    if (link) link.classList.add('epk-nav--active');
+                });
+            }, { rootMargin: '-30% 0px -65% 0px' });
+
+            sections.forEach(s => sectionObs.observe(s));
+        }
     </script>
 </body>
 </html>
