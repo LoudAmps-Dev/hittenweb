@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HITTEN — Electronic Press Kit</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        /* ── Back link ── */
+        .epk-back {
+            position: fixed;
+            top: 16px;
+            left: 20px;
+            z-index: 100;
+            padding: 8px 16px;
+            background: rgba(8, 8, 8, 0.85);
+            border: 1px solid var(--gold-border);
+            color: var(--gold);
+            font-size: var(--text-sm);
+            letter-spacing: 0.05em;
+            transition: background 0.2s;
+        }
+        .epk-back:hover { background: rgba(201, 168, 76, 0.1); }
+
+        /* ── Header ── */
+        .epk-header {
+            position: relative;
+            height: 100vh;
+            min-height: 560px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .epk-header-bg {
+            position: absolute;
+            inset: 0;
+        }
+        .epk-header-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        /* gradient: foto arriba, negro abajo donde aparece el logo */
+        .epk-header-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 20%,
+                rgba(8, 8, 8, 0.6) 50%,
+                #080808 80%
+            );
+        }
+        .epk-header-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 24px 8px;
+        }
+        .epk-logo {
+            width: min(480px, 80vw);
+            margin: 0 auto 20px;
+            transform: translateY(40px);
+        }
+        .epk-tagline {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .epk-label-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            border: 1px solid var(--gold-border);
+            color: var(--gold);
+            font-size: var(--text-xs);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+        .epk-label-badge:hover { background: var(--gold-dim); }
+
+        /* ── Section container ── */
+        .epk-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 72px 24px;
+        }
+        .epk-section h2 {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            margin-bottom: 36px;
+        }
+        .epk-dark {
+            background: var(--surface);
+            border-top: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--gold-border);
+        }
+
+        /* ── Bio ── */
+        .epk-bio-text {
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 720px;
+        }
+        .epk-bio-text + .epk-bio-text {
+            margin-top: 20px;
+        }
+
+        /* ── Stats ── */
+        .epk-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2px;
+            background: var(--gold-border);
+        }
+        .epk-stat {
+            background: var(--surface-2);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .epk-stat-number {
+            display: block;
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--gold);
+            line-height: 1;
+        }
+        .epk-stat-label {
+            display: block;
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 8px;
+        }
+
+        /* ── Members ── */
+        .epk-members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 24px;
+        }
+        .epk-member { text-align: center; }
+        .epk-member-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--surface);
+            border: 1px solid var(--gold-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+        .epk-member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .epk-member-photo svg {
+            width: 38%;
+            color: var(--gold-border);
+        }
+        .epk-member-name {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            letter-spacing: 0.04em;
+        }
+        .epk-member-role {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 2px;
+        }
+
+        /* ── Notable performances ── */
+        .epk-performances-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+        }
+        .epk-perf-item {
+            background: var(--surface-2);
+            border: 1px solid var(--gold-border);
+            padding: 14px 18px;
+            font-size: var(--text-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .epk-perf-item::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Discography ── */
+        .epk-albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .epk-album {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .epk-album img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--gold-border);
+            display: block;
+        }
+        .epk-album-name {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            letter-spacing: 0.04em;
+            line-height: 1.2;
+        }
+        .epk-album-meta {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── Social ── */
+        .epk-social-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            justify-content: center;
+        }
+        .epk-social-item { text-align: center; }
+        .epk-social-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--gold);
+            margin: 0 auto 10px;
+        }
+        .epk-social-count {
+            display: block;
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            line-height: 1;
+        }
+        .epk-social-name {
+            display: block;
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 4px;
+        }
+
+        /* ── Booking ── */
+        .epk-booking {
+            text-align: center;
+            border-top: 1px solid var(--gold-border);
+        }
+        .epk-booking h2 { margin-bottom: 8px; }
+        .epk-booking-desc {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+        .epk-booking-name {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .epk-booking-role {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 28px;
+        }
+
+        /* ── Scroll Reveal ── */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-d1 { transition-delay: 0.1s; }
+        .reveal-d2 { transition-delay: 0.2s; }
+        .reveal-d3 { transition-delay: 0.3s; }
+        .reveal-d4 { transition-delay: 0.4s; }
+
+        /* ── Album hover + overlay ── */
+        .epk-album {
+            transition: transform 0.2s ease;
+            cursor: default;
+        }
+        .epk-album:hover { transform: translateX(6px); }
+        .epk-album-name { transition: color 0.2s; }
+        .epk-album:hover .epk-album-name { color: var(--gold); }
+
+        .epk-album-cover-wrap {
+            position: relative;
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+        }
+        .epk-album-cover-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .epk-album-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 8, 8, 0.88);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            opacity: 0;
+            transition: opacity 0.22s ease;
+            text-decoration: none;
+        }
+        .epk-album:hover .epk-album-overlay { opacity: 1; }
+        .epk-album-overlay svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+        }
+        .epk-album-overlay span {
+            font-size: 9px;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* ── Videos ── */
+        .epk-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .epk-video-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 1px solid var(--gold-border);
+        }
+        .epk-video-wrap iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .epk-video-title {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            letter-spacing: 0.04em;
+            margin-top: 12px;
+        }
+
+        /* ── Performance hover ── */
+        .epk-perf-item {
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .epk-perf-item:hover {
+            background: rgba(201, 168, 76, 0.06);
+            border-color: var(--gold);
+        }
+
+        /* ── Spotify embed ── */
+        .epk-spotify-wrap {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border: 1px solid var(--gold-border);
+        }
+        .epk-spotify-wrap iframe { display: block; }
+
+        /* ── Footer ── */
+        .epk-footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--gold-border);
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+        }
+        .epk-footer a { color: var(--gold); }
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="epk-back">← Official Site</a>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="epk-header">
+        <div class="epk-header-bg">
+            <img src="assets/IMG_0885.jpg" alt="HITTEN band photo">
+        </div>
+        <div class="epk-header-content">
+            <img src="assets/logoweb.png" alt="HITTEN" class="epk-logo">
+            <a href="https://www.hrrecords.de/HITTEN_1" target="_blank" rel="noopener" class="epk-label-badge">High Roller Records</a>
+        </div>
+    </header>
+
+    <!-- ═══ BIO ═══ -->
+    <div class="epk-section reveal-on-scroll">
+        <h2>Bio</h2>
+        <p class="epk-bio-text">
+            HITTEN is Spain's most relentless rock 'n roll export — a five-piece heavy metal machine forged in Murcia in 2011 and built to last. Equal parts arena swagger and street-level grit, the band channels the golden era of hard rock and classic heavy metal into something that feels viscerally alive: screaming twin guitars, anthemic hooks, and a rhythm section that hits like a freight train.
+        </p>
+        <p class="epk-bio-text">
+            In over a decade of non-stop activity, HITTEN has toured the US, sold out two consecutive nights in Tokyo, and stormed stages across Europe — earning headlining slots and coveted festival spots at Wacken Open Air, Rock Imperium, and beyond. They are not a nostalgia act. They are the thing itself.
+        </p>
+        <p class="epk-bio-text">
+            Signed to Germany's legendary High Roller Records, the band has released five studio albums — most recently <em>While Passion Lasts</em> (2023) — each one a masterclass in timeless songwriting and uncompromising execution. On record and on stage, HITTEN deliver with the kind of conviction that made rock music matter in the first place.
+        </p>
+    </div>
+
+    <!-- ═══ STATS ═══ -->
+    <div class="epk-stats">
+        <div class="epk-stat">
+            <span class="epk-stat-number" data-count="2011">2011</span>
+            <span class="epk-stat-label">Founded</span>
+        </div>
+        <div class="epk-stat">
+            <span class="epk-stat-number" data-count="20" data-prefix="+">+20</span>
+            <span class="epk-stat-label">Countries</span>
+        </div>
+        <div class="epk-stat">
+            <span class="epk-stat-number" data-count="5">5</span>
+            <span class="epk-stat-label">Albums</span>
+        </div>
+        <div class="epk-stat">
+            <span class="epk-stat-number" data-count="15">15</span>
+            <span class="epk-stat-label">Years Active</span>
+        </div>
+    </div>
+
+    <!-- ═══ THE BAND ═══ -->
+    <div class="epk-section">
+        <h2 class="reveal-on-scroll">The Band</h2>
+        <div class="epk-members-grid">
+
+            <div class="epk-member reveal-on-scroll">
+                <div class="epk-member-photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <p class="epk-member-name">Alexx Panza</p>
+                <p class="epk-member-role">Singer</p>
+            </div>
+
+            <div class="epk-member reveal-on-scroll reveal-d1">
+                <div class="epk-member-photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <p class="epk-member-name">Dani Meseguer</p>
+                <p class="epk-member-role">Guitars</p>
+            </div>
+
+            <div class="epk-member reveal-on-scroll reveal-d2">
+                <div class="epk-member-photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <p class="epk-member-name">Johnny Lorca</p>
+                <p class="epk-member-role">Guitars</p>
+            </div>
+
+            <div class="epk-member reveal-on-scroll reveal-d3">
+                <div class="epk-member-photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <p class="epk-member-name">Satan</p>
+                <p class="epk-member-role">Bass</p>
+            </div>
+
+            <div class="epk-member reveal-on-scroll reveal-d4">
+                <div class="epk-member-photo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                </div>
+                <p class="epk-member-name">Willy Medina</p>
+                <p class="epk-member-role">Drums</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══ NOTABLE PERFORMANCES ═══ -->
+    <div class="epk-dark">
+        <div class="epk-section">
+            <h2 class="reveal-on-scroll">Notable Performances</h2>
+            <div class="epk-performances-grid">
+                <div class="epk-perf-item reveal-on-scroll">Wacken Open Air 2024</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d1">Full Metal Cruise 2025</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d2">Full Metal Holiday 2023</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d1">Hell Heroes 2025</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d2">Rock Imperium 2022 &amp; 2025</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d3">Rock The Sun 2025</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d1">Zurbaran Rock 2026</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d2">Sold Out La Riviera, Madrid (w/ HEAT)</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d3">Bullring, Murcia (w/ EUROPE)</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d1">2× Sold Out · Tokyo</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d2">+25 Shows Touring USA</div>
+                <div class="epk-perf-item reveal-on-scroll reveal-d3">Extensive European Touring Since 2012</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ DISCOGRAPHY ═══ -->
+    <div class="epk-section">
+        <h2 class="reveal-on-scroll">Discography</h2>
+
+        <div class="epk-spotify-wrap reveal-on-scroll">
+            <iframe
+                src="https://open.spotify.com/embed/artist/78LVpk0xhPtf6ptfZjaw5h?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <div class="epk-albums-grid">
+            <div class="epk-album reveal-on-scroll">
+                <div class="epk-album-cover-wrap">
+                    <img src="assets/albums/a3026073708_10.jpg" alt="While Passion Lasts">
+                    <a href="https://open.spotify.com/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="epk-album-overlay" aria-label="Listen on Spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <span>Listen on<br>Spotify</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="epk-album-name">While Passion Lasts</p>
+                    <p class="epk-album-meta">2023 · High Roller Records</p>
+                </div>
+            </div>
+            <div class="epk-album reveal-on-scroll reveal-d1">
+                <div class="epk-album-cover-wrap">
+                    <img src="assets/albums/triumph.jpg" alt="Triumph & Tragedy">
+                    <a href="https://open.spotify.com/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="epk-album-overlay" aria-label="Listen on Spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <span>Listen on<br>Spotify</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="epk-album-name">Triumph &amp; Tragedy</p>
+                    <p class="epk-album-meta">2021 · High Roller Records</p>
+                </div>
+            </div>
+            <div class="epk-album reveal-on-scroll reveal-d2">
+                <div class="epk-album-cover-wrap">
+                    <img src="assets/albums/twist.jpg" alt="Twist of Fate">
+                    <a href="https://open.spotify.com/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="epk-album-overlay" aria-label="Listen on Spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <span>Listen on<br>Spotify</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="epk-album-name">Twist of Fate</p>
+                    <p class="epk-album-meta">2018 · High Roller Records</p>
+                </div>
+            </div>
+            <div class="epk-album reveal-on-scroll reveal-d1">
+                <div class="epk-album-cover-wrap">
+                    <img src="assets/state%20revisited.jpg" alt="State of Shock">
+                    <a href="https://open.spotify.com/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="epk-album-overlay" aria-label="Listen on Spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <span>Listen on<br>Spotify</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="epk-album-name">State of Shock</p>
+                    <p class="epk-album-meta">2016 · High Roller Records</p>
+                </div>
+            </div>
+            <div class="epk-album reveal-on-scroll reveal-d2">
+                <div class="epk-album-cover-wrap">
+                    <img src="assets/first%20strike%20.jpg" alt="First Strike">
+                    <a href="https://open.spotify.com/artist/78LVpk0xhPtf6ptfZjaw5h" target="_blank" rel="noopener" class="epk-album-overlay" aria-label="Listen on Spotify">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <span>Listen on<br>Spotify</span>
+                    </a>
+                </div>
+                <div>
+                    <p class="epk-album-name">First Strike</p>
+                    <p class="epk-album-meta">2014 · High Roller Records</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ MUSIC VIDEOS ═══ -->
+    <div class="epk-dark">
+        <div class="epk-section">
+            <h2 class="reveal-on-scroll">Music Videos</h2>
+            <div class="epk-videos-grid">
+                <div class="reveal-on-scroll">
+                    <div class="epk-video-wrap">
+                        <iframe
+                            src="https://www.youtube.com/embed/QdadtnK2VJY"
+                            title="HITTEN — Blood from a Stone"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="epk-video-title">Blood from a Stone</p>
+                </div>
+                <div class="reveal-on-scroll reveal-d1">
+                    <div class="epk-video-wrap">
+                        <iframe
+                            src="https://www.youtube.com/embed/LeOdlYlMnc0"
+                            title="HITTEN — Mr Know It All"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="epk-video-title">Mr Know It All</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ SOCIAL ═══ -->
+    <div class="epk-dark">
+        <div class="epk-section reveal-on-scroll">
+            <h2>Followers</h2>
+            <div class="epk-social-inner">
+
+                <div class="epk-social-item">
+                    <svg class="epk-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Instagram">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                    <span class="epk-social-count">11.5k</span>
+                    <span class="epk-social-name">Instagram</span>
+                </div>
+
+                <div class="epk-social-item">
+                    <svg class="epk-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Facebook">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <span class="epk-social-count">15k</span>
+                    <span class="epk-social-name">Facebook</span>
+                </div>
+
+                <div class="epk-social-item">
+                    <svg class="epk-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Spotify">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    <span class="epk-social-count">15k</span>
+                    <span class="epk-social-name">Spotify</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ BOOKING ═══ -->
+    <div class="epk-section epk-booking reveal-on-scroll">
+        <h2>Booking</h2>
+        <p class="epk-booking-desc">For live performances, festival appearances and touring inquiries.</p>
+        <p class="epk-booking-name">Julio Romero</p>
+        <p class="epk-booking-role">Booking Manager</p>
+        <a href="mailto:booking@officialhitten.com" class="btn btn-primary">
+            booking@officialhitten.com
+        </a>
+    </div>
+
+    <footer class="epk-footer">
+        <a href="https://www.officialhitten.com">www.officialhitten.com</a>
+    </footer>
+
+    <script>
+        // ── Scroll Reveal ──
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+        // ── Stats Count-up ──
+        function countUp(el, target, prefix, duration) {
+            const startVal = target >= 2000 ? 2000 : 0;
+            const start = performance.now();
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const val = Math.round(startVal + (target - startVal) * eased);
+                el.textContent = prefix + val;
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('[data-count]').forEach(el => {
+                        countUp(
+                            el,
+                            parseInt(el.dataset.count),
+                            el.dataset.prefix || '',
+                            1400
+                        );
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsBar = document.querySelector('.epk-stats');
+        if (statsBar) statsObserver.observe(statsBar);
+    </script>
+</body>
+</html>
