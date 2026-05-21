@@ -92,3 +92,46 @@ document.querySelectorAll('.video-facade').forEach(facade => {
     facade.parentNode.replaceChild(iframe, facade);
   });
 });
+
+/* ============================================================
+   COOKIE BANNER
+   ============================================================ */
+(function () {
+  const banner     = document.getElementById('cookie-banner');
+  const btnAccept  = document.getElementById('cookie-accept');
+  const btnDecline = document.getElementById('cookie-decline');
+  const STORAGE_KEY = 'hitten_cookies';
+
+  // User already made a choice — don't show again
+  if (localStorage.getItem(STORAGE_KEY)) return;
+
+  // Show after 1.2 seconds so the page loads first
+  setTimeout(function () {
+    banner.classList.add('is-visible');
+  }, 1200);
+
+  btnAccept.addEventListener('click', function () {
+    localStorage.setItem(STORAGE_KEY, 'accepted');
+    hideBanner();
+    activateTracking();
+  });
+
+  btnDecline.addEventListener('click', function () {
+    localStorage.setItem(STORAGE_KEY, 'declined');
+    hideBanner();
+  });
+
+  function hideBanner() {
+    banner.classList.remove('is-visible');
+    setTimeout(function () { banner.remove(); }, 500);
+  }
+
+  function activateTracking() {
+    // ── Meta Pixel — paste your code here when you have the Pixel ID ──
+    // Example:
+    //
+    // !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){...}
+    // fbq('init', 'YOUR_PIXEL_ID');
+    // fbq('track', 'PageView');
+  }
+}());
