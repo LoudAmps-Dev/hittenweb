@@ -495,6 +495,7 @@ body::after {
   object-fit: cover;
   object-position: center;
   opacity: 0.55;
+  pointer-events: none;
 }
 
 .hero-overlay {
@@ -581,6 +582,9 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   min-height: 600px;
+  max-width: 1200px;
+  margin-inline: auto;
+  width: 100%;
 }
 
 @media (min-width: 900px) {
@@ -592,13 +596,7 @@ body::after {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: clamp(var(--sp-6), 4vw, var(--sp-8)) clamp(var(--sp-6), 6vw, var(--sp-16));
-  padding-left: clamp(var(--sp-4), 5vw, var(--sp-16));
-  max-width: 680px;
-}
-
-@media (min-width: 1200px) {
-  .bio-text { padding-left: calc((100vw - 1200px) / 2 + var(--sp-16)); }
+  padding: clamp(var(--sp-6), 4vw, var(--sp-8)) clamp(var(--sp-4), 5vw, var(--sp-16));
 }
 
 .bio-text h2 {
@@ -614,6 +612,7 @@ body::after {
   padding-left: var(--sp-4);
   margin-bottom: var(--sp-6);
   line-height: 1.5;
+  max-width: 52ch;
 }
 
 .bio-text p {
@@ -1046,12 +1045,12 @@ body::after {
 
 .merch-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: clamp(var(--sp-3), 2vw, var(--sp-6));
 }
 
-@media (max-width: 640px) {
-  .merch-grid { grid-template-columns: 1fr 1fr; }
+@media (min-width: 900px) {
+  .merch-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .merch-item {

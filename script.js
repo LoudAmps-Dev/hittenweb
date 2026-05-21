@@ -94,6 +94,34 @@ document.querySelectorAll('.video-facade').forEach(facade => {
 });
 
 /* ============================================================
+   HERO VIDEO — forzar reproducción en móvil
+   ============================================================ */
+(function () {
+  const heroVideo = document.querySelector('.hero-video');
+  if (!heroVideo) return;
+
+  // Usuarios con prefers-reduced-motion no deberían tener video en movimiento
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+    return;
+  }
+
+  // Intento programático — necesario en iOS Low Power Mode y algunos Android
+  const playAttempt = heroVideo.play();
+  if (playAttempt !== undefined) {
+    playAttempt.catch(function () {
+      // El autoplay fue bloqueado — reintentar en cuanto el usuario toque la pantalla
+      var retry = function () {
+        heroVideo.play().catch(function () {});
+      };
+      document.addEventListener('touchstart', retry, { once: true });
+      document.addEventListener('click',      retry, { once: true });
+    });
+  }
+}());
+
+/* ============================================================
    COOKIE BANNER
    ============================================================ */
 (function () {
