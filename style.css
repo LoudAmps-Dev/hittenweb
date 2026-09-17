@@ -700,6 +700,13 @@ body::after {
   background: transparent !important;
 }
 
+/* Red de seguridad: cualquier texto del widget que no tenga
+   color propio definido abajo hereda el color negro por defecto
+   de Bandsintown, que se vuelve invisible sobre nuestro fondo negro. */
+.bit-widget * {
+  color: var(--text) !important;
+}
+
 .bit-widget .bit-event {
   border-bottom: 1px solid var(--gold-border) !important;
   background: transparent !important;
